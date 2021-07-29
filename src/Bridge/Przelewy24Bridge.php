@@ -16,9 +16,9 @@ use GuzzleHttp\ClientInterface;
 
 final class Przelewy24Bridge implements Przelewy24BridgeInterface
 {
-    private string $merchantId;
+    private string $merchantId = '';
 
-    private string $crcKey;
+    private string $crcKey = '';
 
     private string $environment = self::SANDBOX_ENVIRONMENT;
 
