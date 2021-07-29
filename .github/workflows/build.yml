@@ -28,12 +28,12 @@ jobs:
         mysql: ["8.0"]
 
         exclude:
-          - sylius: ~1.8.0
-            php: 8.0
-            symfony: ^5.2
+          - sylius: "~1.8.0"
+            php: "8.0"
+            symfony: "^5.2"
 
-          - sylius: ~1.9.0
-            php: 8.0
+          - sylius: "~1.9.0"
+            php: "8.0"
 
     env:
       APP_ENV: test
