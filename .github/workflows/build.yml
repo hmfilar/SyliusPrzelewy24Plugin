@@ -105,11 +105,16 @@ jobs:
       -
         name: Restrict Sylius version
         if: matrix.sylius != ''
-        run: composer require "sylius/sylius:${{ matrix.sylius }}" --with-all-dependencies --no-scripts --no-interaction
+        run: composer require "sylius/sylius:${{ matrix.sylius }}" --no-update --no-scripts --no-interaction
 
       -
         name: Install PHP dependencies
         run: composer install --no-interaction --no-scripts
+
+      -
+        name: Update dependencies for Sylius ~1.9.0
+        if: matrix.sylius == '~1.9.0'
+        run: composer update "sylius/sylius" --with-all-dependencies --no-interaction --no-scripts
 
       -
         name: Get Yarn cache directory
