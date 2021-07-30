@@ -112,6 +112,11 @@ jobs:
         run: composer install --no-interaction --no-scripts
 
       -
+        name: Update dependencies for Sylius ~1.9.0
+        if: matrix.sylius == '~1.9.0'
+        run: composer update sylius/sylius --with-all-dependencies
+
+      -
         name: Get Yarn cache directory
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
