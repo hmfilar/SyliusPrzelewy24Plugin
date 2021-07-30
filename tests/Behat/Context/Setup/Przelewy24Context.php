@@ -14,7 +14,7 @@ namespace Tests\BitBag\SyliusPrzelewy24Plugin\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
 use BitBag\SyliusPrzelewy24Plugin\Bridge\Przelewy24BridgeInterface;
-use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Behat\Service\SharedStorageInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Model\PaymentMethodInterface;
@@ -28,13 +28,13 @@ final class Przelewy24Context implements Context
 
     private ExampleFactoryInterface $paymentMethodExampleFactory;
 
-    private ObjectManager $paymentMethodManager;
+    private EntityManagerInterface $paymentMethodManager;
 
     public function __construct(
         SharedStorageInterface $sharedStorage,
         PaymentMethodRepositoryInterface $paymentMethodRepository,
         ExampleFactoryInterface $paymentMethodExampleFactory,
-        ObjectManager $paymentMethodManager
+        EntityManagerInterface $paymentMethodManager
     ) {
         $this->sharedStorage = $sharedStorage;
         $this->paymentMethodRepository = $paymentMethodRepository;
